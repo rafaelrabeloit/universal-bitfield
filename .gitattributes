@@ -1,0 +1,3 @@
+# Ensure gradlew keeps LF line endings on all platforms
+gradlew text eol=lf
+*.bat text eol=crlf
