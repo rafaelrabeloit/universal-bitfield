@@ -1,4 +1,4 @@
-rootProject.name = "bitfield-parser"
+rootProject.name = "universal-bitfield"
 
 pluginManagement {
     repositories {

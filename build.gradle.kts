@@ -30,7 +30,11 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib"))
+            }
+        }
 
         val commonTest by getting {
             dependencies {
@@ -44,7 +48,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/rafaelrabeloit/bitfield-parser")
+            url = uri("https://maven.pkg.github.com/rafaelrabeloit/universal-bitfield")
             credentials {
                 username = project.findProperty("gpr.user") as String? ?: System.getenv("GITHUB_ACTOR")
                 password = project.findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
@@ -53,9 +57,9 @@ publishing {
     }
     publications.withType<MavenPublication> {
         pom {
-            name.set("BitField Parser")
+            name.set("Universal Bitfield")
             description.set("A Kotlin Multiplatform library for declarative bitfield schema definition and parsing")
-            url.set("https://github.com/rafaelrabeloit/bitfield-parser")
+            url.set("https://github.com/rafaelrabeloit/universal-bitfield")
             licenses {
                 license {
                     name.set("MIT License")
@@ -69,9 +73,9 @@ publishing {
                 }
             }
             scm {
-                url.set("https://github.com/rafaelrabeloit/bitfield-parser")
-                connection.set("scm:git:git://github.com/rafaelrabeloit/bitfield-parser.git")
-                developerConnection.set("scm:git:ssh://github.com/rafaelrabeloit/bitfield-parser.git")
+                url.set("https://github.com/rafaelrabeloit/universal-bitfield")
+                connection.set("scm:git:git://github.com/rafaelrabeloit/universal-bitfield.git")
+                developerConnection.set("scm:git:ssh://github.com/rafaelrabeloit/universal-bitfield.git")
             }
         }
     }

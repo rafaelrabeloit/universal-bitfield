@@ -1,4 +1,4 @@
-# BitField Parser
+# Universal Bitfield
 
 A Kotlin Multiplatform library for declaratively defining and parsing bitfield schemas. Define bitfield layouts with a type-safe DSL, then parse raw bytes to get structured, labeled results with optional callbacks.
 
@@ -11,7 +11,7 @@ A Kotlin Multiplatform library for declaratively defining and parsing bitfield s
 
 ```kotlin
 dependencies {
-    implementation("io.github.rafaelrabeloit:bitfield-parser:0.1.0")
+    implementation("io.github.rafaelrabeloit:universal-bitfield:0.1.0")
 }
 ```
 
