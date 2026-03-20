@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   build-and-test:
-    name: Build & Test
+    name: Build & Test (JVM + JS + Linux)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,8 +28,11 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Build
-        run: ./gradlew build
+      - name: Run JVM tests
+        run: ./gradlew jvmTest
 
-      - name: Run all tests
-        run: ./gradlew allTests
+      - name: Run JS tests
+        run: ./gradlew jsNodeTest
+
+      - name: Run Linux tests
+        run: ./gradlew linuxX64Test
