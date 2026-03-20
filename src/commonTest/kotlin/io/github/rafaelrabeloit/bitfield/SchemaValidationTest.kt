@@ -3,6 +3,7 @@ package io.github.rafaelrabeloit.bitfield
 import io.github.rafaelrabeloit.bitfield.dsl.bitfield
 import kotlin.test.Test
 import kotlin.test.assertFailsWith
+import kotlin.test.assertTrue
 
 class SchemaValidationTest {
 
@@ -16,7 +17,7 @@ class SchemaValidationTest {
                 }
             }
         }.also {
-            assert(it.message!!.contains("declares 2 byte(s) but 1"))
+            assertTrue(it.message!!.contains("declares 2 byte(s) but 1"))
         }
     }
 
@@ -34,7 +35,7 @@ class SchemaValidationTest {
                 }
             }
         }.also {
-            assert(it.message!!.contains("declares 1 byte(s) but 2"))
+            assertTrue(it.message!!.contains("declares 1 byte(s) but 2"))
         }
     }
 
@@ -52,7 +53,7 @@ class SchemaValidationTest {
                 }
             }
         }.also {
-            assert(it.message!!.contains("has index 3, expected 2"))
+            assertTrue(it.message!!.contains("has index 3, expected 2"))
         }
     }
 
@@ -67,7 +68,7 @@ class SchemaValidationTest {
                 }
             }
         }.also {
-            assert(it.message!!.contains("bit 0 is covered by multiple fields"))
+            assertTrue(it.message!!.contains("bit 0 is covered by multiple fields"))
         }
     }
 
@@ -85,7 +86,7 @@ class SchemaValidationTest {
                 }
             }
         }.also {
-            assert(it.message!!.contains("bit 1 is covered by multiple fields"))
+            assertTrue(it.message!!.contains("bit 1 is covered by multiple fields"))
         }
     }
 
@@ -100,7 +101,7 @@ class SchemaValidationTest {
                 }
             }
         }.also {
-            assert(it.message!!.contains("not covered by any field"))
+            assertTrue(it.message!!.contains("not covered by any field"))
         }
     }
 
@@ -118,7 +119,7 @@ class SchemaValidationTest {
                 }
             }
         }.also {
-            assert(it.message!!.contains("out of range for 2-bit field"))
+            assertTrue(it.message!!.contains("out of range for 2-bit field"))
         }
     }
 
@@ -132,7 +133,7 @@ class SchemaValidationTest {
                 }
             }
         }.also {
-            assert(it.message!!.contains("outside valid range 0..7"))
+            assertTrue(it.message!!.contains("outside valid range 0..7"))
         }
     }
 
@@ -155,7 +156,7 @@ class SchemaValidationTest {
             }
         }
 
-        assert(schema.expectedBytes == 2)
-        assert(schema.bytes.size == 2)
+        assertTrue(schema.expectedBytes == 2)
+        assertTrue(schema.bytes.size == 2)
     }
 }
