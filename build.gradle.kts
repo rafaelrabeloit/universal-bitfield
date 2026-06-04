@@ -44,9 +44,15 @@ kotlin {
     }
 }
 
+private fun Project.signingConfigured(): Boolean =
+    listOf("signingInMemoryKey", "signing.keyId", "signing.secretKeyRingFile")
+        .any { (findProperty(it) as? String)?.isNotBlank() == true }
+
 mavenPublishing {
     publishToMavenCentral(automaticRelease = true)
-    signAllPublications()
+    if (signingConfigured()) {
+        signAllPublications()
+    }
 
     coordinates(group.toString(), "universal-bitfield", version.toString())
 

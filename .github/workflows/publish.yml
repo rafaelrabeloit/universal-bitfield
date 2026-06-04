@@ -31,7 +31,7 @@ jobs:
         run: ./gradlew jvmTest
 
       - name: Publish to GitHub Packages
-        run: ./gradlew publish
+        run: ./gradlew publishAllPublicationsToGitHubPackagesRepository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.actor }}
